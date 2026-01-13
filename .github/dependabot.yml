@@ -1,0 +1,46 @@
+version: 2
+updates:
+  # Surveiller les dépendances npm
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependencies"
+      - "security"
+
+  # Surveiller les actions GitHub
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependencies"
+      - "github-actions"
+
+  # Surveiller l'image de base Docker
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependencies"
+      - "docker"
+2.2 Ajouter un package.json (pour tester)
+Créer package.json à la racine :
+
+{
+  "name": "devops-tp-docker",
+  "version": "1.0.0",
+  "description": "TP DevSecOps avec Docker",
+  "scripts": {
+    "test": "echo \"No tests yet\""
+  },
+  "dependencies": {
+    "express": "4.17.1",
+    "lodash": "4.17.20"
+  },
+  "devDependencies": {
+    "eslint": "7.32.0"
+  }
+}
